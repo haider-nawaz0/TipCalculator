@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="jquery-3.6.0.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="containar">
+        <div class="deck">
+
+            <div class="left">
+                <div class="tabs" id="input-tab">
+                    <span>Bill</span>
+                    <br>
+                    <input type="text" id="bill-input">
+                </div>
+
+                <div class="mid-tabs" id="tip-tab">
+                    <button class="tip-btns" id="tip-5">5%</button>
+                    <button class="tip-btns" id="tip-10">10%</button>
+                    <button class="tip-btns" id="tip-custom">Custom</button>
+                </div>
+
+                <div class="tabs" id="persons">
+                    <span>Persons</span>
+                    <br>
+                    <input type="text" id="persons-input">
+                </div>
+            </div>
+
+            <div class="right">
+
+                <div class="inner-containar">
+
+                    <div class="upper">
+                        <div class="upper-left">
+                            <h4>tip amount</h4>
+                            <span>/person</span>
+                        </div>
+
+                        <div class="upper-right">
+                            <h1 id="tip-amount">0.0$</h1>
+                        </div>
+                    </div>
+
+                    <div class="mid-sec">
+                        
+                            <div class="mid-left">
+                                <h4>Total</h4>
+                                <span>/person</span>
+                            </div>
+    
+                            <div class="mid-right">
+                                <h1 id="total-amount">0.0$</h1>
+                            </div>
+                        
+                    </div>
+
+    
+
+                    <div class="reset-btn">
+                        <button class="r-btn">Reset</button>
+                    </div>
+
+                </div>
+                
+            </div>
+
+        </div>
+
+        
+    </div>
+
+    <script>
+
+        $(document).ready(function(){
+
+
+       
+
+        
+            
+
+        $("#tip-5").click(function(){
+            
+            if($("#bill-input").val() == ""){
+                alert("Put in the total bill first.");
+                return;
+            }
+
+            var original_bill = $("#bill-input").val();
+            
+
+            var tip = (original_bill * 5) / 100;
+
+            var total_bill = parseInt(original_bill)+parseInt(tip);
+
+            $("#tip-amount").text(tip+'$');
+            $("#total-amount").text(total_bill+'$');
+
+
+
+        })
+
+        $("#tip-10").click(function(){
+
+            
+            if($("#bill-input").val() == ""){
+                alert("Put in the total bill first.");
+                return;
+            }
+
+            var original_bill = $("#bill-input").val();
+            tip = (original_bill * 10) / 100;
+
+            var total_bill = parseInt(original_bill)+parseInt(tip);
+
+            $("#tip-amount").text(tip+'$');
+            $("#total-amount").text(total_bill+'$');
+
+        })
+
+        $(".r-btn").click(function(){
+
+            $("#tip-amount").text('0.0$');
+            $("#total-amount").text('0.0$');
+        })
+        $("#tip-custom").click(function(){
+
+            
+            if($("#bill-input").val() == ""){
+                alert("Put in the total bill first.");
+                return;
+            }
+
+          alert("You want a custom Fuck ?");
+
+          
+        })
+
+
+})
+    </script>
+    
+</body>
+</html>
